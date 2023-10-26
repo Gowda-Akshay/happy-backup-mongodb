@@ -4,7 +4,7 @@ const path = require('path');
 
 function backup(req, res) {
     const { dbName } = req.query;
-    const mongoURI = 'mongodump --uri ' + dbName;
+    const mongoURI = dbName;
     exec(`mongodump --uri ${mongoURI}`, (error, stdout, stderr) => {
         if (error) {
             console.log(`Error while running mongodump: ${error}`);
